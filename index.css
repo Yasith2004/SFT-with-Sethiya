@@ -13,6 +13,8 @@
 html, body {
     margin: 0;
     padding: 0;
+    scrollbar-color: #DAA520 #111;
+    scrollbar-width: thin;
 }
 
 * {
@@ -20,6 +22,7 @@ html, body {
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    
 }
 
 body {
