@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
@@ -198,6 +199,80 @@
                 </a>
             </div>
         </div>
+    <section id="contact">
+        <div class="contact-section-container">
+            <div class="contact-header">
+                <div class="contact-badge">GET IN TOUCH</div>
+                <h2 class="contact-title">Contact <span class="gold-text">Us</span></h2>
+                <p class="contact-subtitle">Have questions? We're here to help you on your educational journey. Send us a message today.</p>
+            </div>
+
+            <div class="contact-content-grid">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="info-text">
+                            <h4>Call Us</h4>
+                            <p>+94 78 239 3328</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="info-text">
+                            <h4>Email Us</h4>
+                            <p>sethiyawishvamith@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="info-text">
+                            <h4>Location</h4>
+                            <p>Nittambuwa, Sri Lanka</p>
+                        </div>
+                    </div>
+
+                    <div class="follow-us">
+                        <p>Follow Us</p>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/profile.php?id=61554665860890" target="_blank" class="social-btn facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@Sethiyawishvamith" target="_blank" class="social-btn youtube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <form class="contact-form">
+                        <div class="form-group-row">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" placeholder="Your Email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Subject</label>
+                            <input type="text" placeholder="How can we help?" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="contact-submit-btn">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </section>
 
     <script>
@@ -210,9 +285,9 @@
             });
         });
 
-        // Scroll-Triggered Animations Handler (Statistics, Profile, Process & Journey)
+        // Scroll-Triggered Animations Handler (Statistics, Profile, Process, Journey & Contact)
         const stats = document.querySelectorAll('.stat-box');
-        const scrollRevealElements = document.querySelectorAll('.stats-container, .profile-section-container, .process-section-container, .journey-section-container');
+        const scrollRevealElements = document.querySelectorAll('.stats-container, .profile-section-container, .process-section-container, .journey-section-container, .contact-section-container');
 
         const observerOptions = {
             threshold: 0.1,
@@ -226,7 +301,8 @@
                     if (entry.target.classList.contains('stats-container') ||
                         entry.target.classList.contains('profile-section-container') ||
                         entry.target.classList.contains('process-section-container') ||
-                        entry.target.classList.contains('journey-section-container')) {
+                        entry.target.classList.contains('journey-section-container') ||
+                        entry.target.classList.contains('contact-section-container')) {
                         entry.target.classList.add('visible');
                     }
 
@@ -239,7 +315,8 @@
                     if (entry.target.classList.contains('stats-container') ||
                         entry.target.classList.contains('profile-section-container') ||
                         entry.target.classList.contains('process-section-container') ||
-                        entry.target.classList.contains('journey-section-container')) {
+                        entry.target.classList.contains('journey-section-container') ||
+                        entry.target.classList.contains('contact-section-container')) {
                         entry.target.classList.remove('visible');
                     }
 
