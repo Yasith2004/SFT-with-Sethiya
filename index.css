@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg-dark: #0a0a0c;
+    --accent: #6366f1;
+    --accent-hover: #4f46e5;
+    --text-primary: #ffffff;
+    --text-secondary: #94a3b8;
+    --glass: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 0;
+    animation: fadeInDown 0.8s ease-out forwards;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    cursor: pointer;
+}
+
+#sft {
+    font-family: 'Pacifico', cursive;
+}
+
+#sethiya {
+    color: #DAA520;
+    font-family: "DM Serif Display", serif;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 12px;
+}
+
+nav ul li a,
+nav ul li a:visited {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+}
+
+nav ul li a:hover,
+nav ul li a:active,
+nav ul li a:focus,
+nav ul li a.active {
+    color: #DAA520;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+section {
+    padding-top: 120px;
+}
+
+.home-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 24px;
+}
+
+#name {
+    font-family: 'Pacifico', cursive;
+    font-size: 4rem;
+    font-weight: 400;
+    line-height: 1.1;
+    padding-bottom: 21px;
+    margin-bottom: 10px;
+    -webkit-background-clip: text;
+    background: #ffffff;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+#degree {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    max-width: 500px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.4s forwards;
+}
+
+hr {
+    border: 3px solid #DAA520;
+    border-radius: 50px;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, var(--glass-border), transparent);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.6s forwards;
+}
+
+/* Typewriter Animations */
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: #DAA520
+    }
+}
+
+#edu-level {
+    margin-bottom: 32px;
+    max-width: 100%;
+    opacity: 1;
+    /* Already visible containers */
+}
+
+.type-line-1,
+.type-line-2 {
+    font-family: "DM Serif Display", serif;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid transparent;
+    width: 0;
+}
+
+.type-line-1 {
+    font-size: 2rem;
+    animation:
+        typing 1.5s steps(30, end) 1s forwards,
+        blink-caret 0.75s step-end infinite;
+}
+
+.type-line-2 {
+    color: #DAA520;
+    font-size: 2.5rem;
+    font-weight: bolder;
+    animation:
+        typing 2s steps(40, end) 2.5s forwards,
+        blink-caret 0.75s step-end infinite;
+}
+
+/* Remove blinking cursor after animation ends (optional but cleaner) */
+.type-line-1 {
+    animation-fill-mode: forwards;
+}
+
+/* Specific Timing for Carets */
+.type-line-1 {
+    animation:
+        typing 1.5s steps(30, end) 1s forwards,
+        blink-caret 0.75s step-end 2;
+    /* 0.75 * 2 = 1.5s (duration of typing) */
+}
+
+.type-line-2 {
+    animation:
+        typing 2s steps(40, end) 2.5s forwards,
+        blink-caret 0.75s step-end 3 2.5s;
+    /* Delay caret until typing starts, blink 3 times (~2s) */
+}
+
+/* Ensure caret is transparent after it finishes blinking */
+.type-line-1,
+.type-line-2 {
+    border-right-color: transparent;
+}
+
+.home-container img {
+    border-radius: 30px;
+    width: 400px;
+    height: 500px;
+    object-fit: cover;
+    box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--glass-border);
+    opacity: 0;
+    animation: scaleIn 1s ease-out 0.5s forwards, float 6s ease-in-out infinite;
+}
+
+.home-container img:hover {
+    box-shadow: 20px 20px 60px rgba(200, 150, 40, 0.5);
+    transform: scale(1.05);
+}
