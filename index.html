@@ -39,7 +39,7 @@
             </ul>
         </nav>
     </header>
-    <section>
+    <section id="home">
         <div class="home-container">
             <div class="">
                 <p id="name">Sethiya Wishvamith</p>
@@ -55,6 +55,135 @@
             </div>
         </div>
     </section>
+
+    <section id="stats">
+        <div class="stats-container">
+            <div class="stats-badge">★ EXCELLENCE BY NUMBERS</div>
+            <h2 class="stats-title">Excellence by Numbers</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-box" data-target="4" data-suffix="+">0+</div>
+                    <p class="stat-label">Years Experience</p>
+                    <div class="stat-bar"></div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-box" data-target="80" data-suffix="%">0%</div>
+                    <p class="stat-label">A-B Pass Rate</p>
+                    <div class="stat-bar"></div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-box" data-target="100" data-suffix="+">0+</div>
+                    <p class="stat-label">Students Taught</p>
+                    <div class="stat-bar"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="profile-section-container">
+            <div class="profile-grid">
+                <!-- Left: Stylized Image wrapper -->
+                <div class="profile-image-wrapper">
+                    <div class="profile-bg-shape"></div>
+                    <img src="./images/profile-photo.jpg" alt="Sethiya Wishvamith" class="profile-main-img">
+                </div>
+
+                <!-- Right: Content -->
+                <div class="profile-content">
+                    <div class="profile-badge">About tutor</div>
+                    <h2 class="profile-name">Sethiya Wishvamith</h2>
+                    
+                    <div class="profile-desc-card">
+                        <div class="card-accent"></div>
+                        <p>
+                            As a BET (Hons) undergraduate at the University of Colombo, specializing in 
+                            <strong>Instrumentation and Automation</strong>, I bridge the gap between 
+                            complex theory and practical application. Since 2019, I have been dedicated to 
+                            simulating the highest standards of Science For Technology education.
+                        </p>
+                    </div>
+                    
+                    <p class="profile-subtext">
+                        Expertise in Automation, Instrumentation, and Physics-integrated Technology.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Navigation Active State
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Scroll-Triggered Animations Handler (Statistics & Profile)
+        const stats = document.querySelectorAll('.stat-box');
+        const scrollRevealElements = document.querySelectorAll('.stats-container, .profile-section-container');
+        
+        const observerOptions = { 
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Trigger CSS visible class for reveal containers
+                    if (entry.target.classList.contains('stats-container') || entry.target.classList.contains('profile-section-container')) {
+                        entry.target.classList.add('visible');
+                    }
+                    
+                    // Trigger Count-up if it's a stat box
+                    if (entry.target.classList.contains('stat-box') && !entry.target.classList.contains('animating')) {
+                        animateValue(entry.target);
+                    }
+                } else {
+                    // Remove visible class when leaving view so animations can replay
+                    if (entry.target.classList.contains('stats-container') || entry.target.classList.contains('profile-section-container')) {
+                        entry.target.classList.remove('visible');
+                    }
+
+                    // Reset stats when they leave view so they can re-animate
+                    if (entry.target.classList.contains('stat-box')) {
+                        entry.target.classList.remove('animating');
+                        const suffix = entry.target.getAttribute('data-suffix') || '';
+                        entry.target.innerText = '0' + suffix;
+                    }
+                }
+            });
+        }, observerOptions);
+
+        function animateValue(target) {
+            target.classList.add('animating');
+            const countTo = parseInt(target.getAttribute('data-target'));
+            const suffix = target.getAttribute('data-suffix') || '';
+            let current = 0;
+            const duration = 2000;
+            const increment = countTo / (duration / 16);
+
+            const counter = setInterval(() => {
+                current += increment;
+                if (current >= countTo) {
+                    target.innerText = countTo + suffix;
+                    clearInterval(counter);
+                } else {
+                    target.innerText = Math.floor(current) + suffix;
+                }
+            }, 16);
+        }
+
+        stats.forEach(stat => observer.observe(stat));
+        scrollRevealElements.forEach(el => observer.observe(el));
+    </script>
 </body>
 
 </html>
