@@ -59,7 +59,6 @@
     <section id="stats">
         <div class="stats-container">
             <div class="stats-badge">★ EXCELLENCE BY NUMBERS</div>
-            <h2 class="stats-title">Excellence by Numbers</h2>
             
             <div class="stats-grid">
                 <div class="stat-card">
@@ -115,6 +114,64 @@
         </div>
     </section>
 
+    <section id="process">
+        <div class="process-section-container">
+            <div class="process-header">
+                <div class="process-badge">CLASS STRUCTURE</div>
+            </div>
+            
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-num-row">
+                        <div class="process-number">1</div>
+                        <div class="process-line"></div>
+                    </div>
+                    <p>Covering the entire syllabus from the beginning, from simple to complex levels.</p>
+                </div>
+
+                <div class="process-card">
+                    <div class="process-num-row">
+                        <div class="process-number">2</div>
+                        <div class="process-line"></div>
+                    </div>
+                    <p>Being able to cover missed/ununderstood lessons again.</p>
+                </div>
+
+                <div class="process-card">
+                    <div class="process-num-row">
+                        <div class="process-number">3</div>
+                        <div class="process-line"></div>
+                    </div>
+                    <p>Comprehensive coverage of all theory and thesis problems in the entire syllabus 6 months before the exam.</p>
+                </div>
+
+                <div class="process-card">
+                    <div class="process-num-row">
+                        <div class="process-number">4</div>
+                        <div class="process-line"></div>
+                    </div>
+                    <p>Commencing Speed ​​Revision to cover the entire syllabus of the last six months.</p>
+                </div>
+
+                <div class="process-card">
+                    <div class="process-num-row">
+                        <div class="process-number">5</div>
+                        <div class="process-line"></div>
+                    </div>
+                    <p>In addition to the regular class, a quality question paper class is held, and the question papers are written, checked and marked under the full supervision of the teacher.</p>
+                </div>
+
+                <div class="process-card">
+                    <div class="process-num-row">
+                        <div class="process-number">6</div>
+                        <div class="process-line"></div>
+                    </div>
+                    <p>Discussing a entire question paper every week.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script>
         // Navigation Active State
         const navLinks = document.querySelectorAll('nav ul li a');
@@ -125,12 +182,12 @@
             });
         });
 
-        // Scroll-Triggered Animations Handler (Statistics & Profile)
+        // Scroll-Triggered Animations Handler (Statistics, Profile & Process)
         const stats = document.querySelectorAll('.stat-box');
-        const scrollRevealElements = document.querySelectorAll('.stats-container, .profile-section-container');
+        const scrollRevealElements = document.querySelectorAll('.stats-container, .profile-section-container, .process-section-container');
         
         const observerOptions = { 
-            threshold: 0.2,
+            threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
 
@@ -138,7 +195,9 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     // Trigger CSS visible class for reveal containers
-                    if (entry.target.classList.contains('stats-container') || entry.target.classList.contains('profile-section-container')) {
+                    if (entry.target.classList.contains('stats-container') || 
+                        entry.target.classList.contains('profile-section-container') ||
+                        entry.target.classList.contains('process-section-container')) {
                         entry.target.classList.add('visible');
                     }
                     
@@ -148,7 +207,10 @@
                     }
                 } else {
                     // Remove visible class when leaving view so animations can replay
-                    if (entry.target.classList.contains('stats-container') || entry.target.classList.contains('profile-section-container')) {
+                    // Remove visible class when leaving view so animations can replay
+                    if (entry.target.classList.contains('stats-container') || 
+                        entry.target.classList.contains('profile-section-container') ||
+                        entry.target.classList.contains('process-section-container')) {
                         entry.target.classList.remove('visible');
                     }
 
